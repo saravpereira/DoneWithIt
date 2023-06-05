@@ -8,7 +8,7 @@ const ViewImageScreen = () => {
       <StatusBar barStyle="light-content" />
       <Image
         style={styles.backgroundImg}
-        source={require("../../assets/chair.jpg")}
+        source={require("../../../assets/chair.jpg")}
       />
       <SafeAreaView style={styles.headerContiner}>
         <View style={styles.buttonContainer}>

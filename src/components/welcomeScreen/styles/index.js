@@ -25,6 +25,10 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop: 10,
   },
+  text: {
+    fontWeight: 700,
+    fontSize: 24,
+  },
   backgroundImg: {
     width: "100%",
     height: "100%",
@@ -40,15 +44,8 @@ export const styles = StyleSheet.create({
     bottom: 0,
     width: "100%",
     height: "20%",
-  },
-  register: {
-    width: "100%",
-    height: "50%",
-    backgroundColor: "#4ECDC4",
-  },
-  login: {
-    width: "100%",
-    height: "50%",
-    backgroundColor: "#fc5c65",
+    display: "flex",
+    flexDirection: "column",
+    rowGap: 20,
   },
 });

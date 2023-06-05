@@ -1,6 +1,6 @@
-import WelcomeScreen from "./src/WelcomePage/WelcomeScreen";
-import ViewImageScreen from "./src/ViewImagePage/ViewImageScreen";
+import WelcomeScreen from "./src/components/welcomeScreen/WelcomeScreen";
+import ViewImageScreen from "./src/components/viewImageScreen/ViewImageScreen";
 
 export default function App() {
-  return <ViewImageScreen />;
+  return <WelcomeScreen />;
 }
