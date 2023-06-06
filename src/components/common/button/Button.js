@@ -1,6 +1,6 @@
 import React from "react";
 import { styles } from "./styles";
-import { View, Image, Text, SafeAreaView } from "react-native";
+import { View, Text } from "react-native";
 
 const Button = ({ color = "primary", text }) => {
   return (

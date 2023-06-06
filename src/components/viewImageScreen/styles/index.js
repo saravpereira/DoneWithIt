@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
   },
   buttonContainer: {
     width: "100%",
-    height: "30%",
+    height: "50%",
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
@@ -26,15 +26,5 @@ export const styles = StyleSheet.create({
     height: "20%",
     flexDirection: "column",
     backgroundColor: "black",
-  },
-  deny: {
-    width: 50,
-    height: 50,
-    backgroundColor: "#fc5c65",
-  },
-  accept: {
-    width: 50,
-    height: 50,
-    backgroundColor: "#4ECDC4",
   },
 });

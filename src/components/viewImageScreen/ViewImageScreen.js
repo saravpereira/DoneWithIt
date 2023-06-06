@@ -1,6 +1,7 @@
 import React from "react";
 import { styles } from "./styles";
 import { View, Image, SafeAreaView, StatusBar } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const ViewImageScreen = () => {
   return (
@@ -12,8 +13,13 @@ const ViewImageScreen = () => {
       />
       <SafeAreaView style={styles.headerContiner}>
         <View style={styles.buttonContainer}>
-          <View style={styles.accept} />
-          <View style={styles.deny} />
+          <MaterialCommunityIcons name="close" size={30} color="white" />
+
+          <MaterialCommunityIcons
+            name="trash-can-outline"
+            size={30}
+            color="white"
+          />
         </View>
       </SafeAreaView>
     </View>
