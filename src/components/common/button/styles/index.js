@@ -1,9 +1,9 @@
 import { StyleSheet } from "react-native";
-import { primaryColor, secondaryColor } from "../../../../constants";
+import colors from "../../../../constants/colors";
 export const styles = (primary) => {
   return StyleSheet.create({
     container: {
-      backgroundColor: primary ? primaryColor : secondaryColor,
+      backgroundColor: primary ? colors.primaryColor : colors.secondaryColor,
       width: "100%",
       display: "flex",
       justifyContent: "center",

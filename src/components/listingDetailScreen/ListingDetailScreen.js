@@ -1,6 +1,7 @@
 import React from "react";
 import { styles } from "./styles";
 import { View, Image, Text } from "react-native";
+import ListItem from "../common/listItem/ListItem";
 
 const ListingDetailScreen = ({
   title,
@@ -18,15 +19,13 @@ const ListingDetailScreen = ({
         <Text style={styles.pricing}>{subtitle}</Text>
       </View>
 
-      <View style={styles.userDetail}>
-        <Image style={styles.avatar} source={avatar} />
-        <View style={styles.usernameAndListing}>
-          <Text style={styles.username}>{listingUserFullname}</Text>
-          <Text style={styles.listings}>{`${numberOfListing} Listing${
-            numberOfListing > 1 ? "s" : ""
-          }`}</Text>
-        </View>
-      </View>
+      <ListItem
+        avatar={avatar}
+        title={listingUserFullname}
+        description={`${numberOfListing} Listing${
+          numberOfListing > 1 ? "s" : ""
+        }`}
+      />
     </View>
   );
 };

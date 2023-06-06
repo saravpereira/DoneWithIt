@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { secondaryColor } from "../../../../constants";
+import colors from "../../../../constants/colors";
 
 export const styles = StyleSheet.create({
   container: {
@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
     rowGap: 10,
   },
   pricing: {
-    color: secondaryColor,
+    color: colors.secondaryColor,
     fontWeight: 700,
     fontSize: 16,
   },
