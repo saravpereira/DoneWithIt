@@ -6,7 +6,8 @@ import ListingDetailScreen from "./src/components/listingDetailScreen/ListingDet
 import Screen from "./src/components/common/screen/Screen";
 import MessagesScreen from "./src/components/messagesScreen/MessagesScreen";
 import MyAccountScreen from "./src/components/myAccountScreen/MyAccountScreen";
+import ListingsScreen from "./src/components/listingsScreen/ListingsScreen";
 
 export default function App() {
-  return <MyAccountScreen />;
+  return <ListingsScreen />;
 }
