@@ -20,7 +20,7 @@ const ListingDetailScreen = ({
       </View>
 
       <ListItem
-        avatar={avatar}
+        avatar={<Image style={styles.avatar} source={avatar} />}
         title={listingUserFullname}
         description={`${numberOfListing} Listing${
           numberOfListing > 1 ? "s" : ""

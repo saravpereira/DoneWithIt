@@ -5,7 +5,8 @@ import Card from "./src/components/common/card/Card";
 import ListingDetailScreen from "./src/components/listingDetailScreen/ListingDetailScreen";
 import Screen from "./src/components/common/screen/Screen";
 import MessagesScreen from "./src/components/messagesScreen/MessagesScreen";
+import MyAccountScreen from "./src/components/myAccountScreen/MyAccountScreen";
 
 export default function App() {
-  return <MessagesScreen />;
+  return <MyAccountScreen />;
 }

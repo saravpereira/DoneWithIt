@@ -1,22 +1,33 @@
 import React, { useState } from "react";
-import { FlatList } from "react-native";
+import { FlatList, Image } from "react-native";
 import Screen from "../common/screen/Screen";
 import ListItem from "../common/listItem/ListItem";
 import ListItemSeparator from "../common/listItemSeparator/ListItemSeparator";
 import ListItemDeleteAction from "../common/listItemDeleteAction/ListItemDeleteAction";
+import { styles } from "./styles";
 
 const sample = [
   {
     id: 1,
     title: "Mosh",
     description: "5 Listings",
-    image: require("../../../assets/mosh.jpg"),
+    image: (
+      <Image
+        style={styles.avatar}
+        source={require("../../../assets/mosh.jpg")}
+      />
+    ),
   },
   {
     id: 2,
     title: "Mosh",
     description: "5 Listings",
-    image: require("../../../assets/mosh.jpg"),
+    image: (
+      <Image
+        style={styles.avatar}
+        source={require("../../../assets/mosh.jpg")}
+      />
+    ),
   },
 ];
 

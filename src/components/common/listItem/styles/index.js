@@ -1,12 +1,14 @@
 import { StyleSheet } from "react-native";
+import colors from "../../../../constants/colors";
 
 export const styles = StyleSheet.create({
   userDetail: {
     display: "flex",
     flexDirection: "row",
     gap: 10,
-    marginTop: 20,
-    padding: 10,
+    padding: 15,
+    backgroundColor: colors.white,
+    alignItems: "center",
   },
   avatar: {
     width: 60,
@@ -20,6 +22,7 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontSize: 14,
+    fontWeight: 500,
   },
   description: {
     color: "gray",
