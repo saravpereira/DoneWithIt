@@ -1,7 +1,7 @@
 import React from "react";
 import { styles } from "./styles";
 import { View, Image, Text, SafeAreaView } from "react-native";
-import Button from "../common/button/Button";
+import AppButton from "../common/button/AppButton";
 
 const WelcomeScreen = () => {
   return (
@@ -24,9 +24,9 @@ const WelcomeScreen = () => {
       </SafeAreaView>
 
       <View style={styles.buttonsContainer}>
-        <Button text="LOGIN" color="primary" />
+        <AppButton text="LOGIN" color="primary" />
 
-        <Button text="REGISTER" color="secondary" />
+        <AppButton text="REGISTER" color="secondary" />
       </View>
     </View>
   );
