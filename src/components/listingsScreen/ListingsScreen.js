@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { FlatList, View, Image } from "react-native";
-import Screen from "../common/screen/Screen";
+import { View } from "react-native";
 import { styles } from "./styles";
 import Card from "../common/card/Card";
+import Screen from "../common/screen/Screen";
 
 const sample = [
   {
