@@ -5,7 +5,7 @@ import {
 } from "react-native-gesture-handler";
 import { View, Text, TouchableHighlight } from "react-native";
 import { styles } from "./styles";
-import colors from "../../../constants/colors";
+import colors from "../../../../constants/colors";
 
 const ListItem = ({
   avatar,

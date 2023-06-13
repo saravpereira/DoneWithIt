@@ -1,7 +1,7 @@
 import React from "react";
 import { styles } from "./styles";
 import { View, Image, Text } from "react-native";
-import ListItem from "../common/listItem/ListItem";
+import ListItem from "../common/lists/listItem/ListItem";
 
 const ListingDetailScreen = ({
   title,

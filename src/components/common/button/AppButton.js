@@ -1,13 +1,15 @@
 import React from "react";
 import { styles } from "./styles";
-import { View, Text } from "react-native";
+import { View, Text, TouchableWithoutFeedback } from "react-native";
 
-const Button = ({ color = "primary", text }) => {
+const AppButton = ({ color = "primary", text, onPress, style }) => {
   return (
-    <View style={styles(color === "primary").container}>
-      <Text style={styles(color === "primary").text}>{text}</Text>
-    </View>
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View style={[styles(color === "primary").container, style]}>
+        <Text style={styles(color === "primary").text}>{text}</Text>
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 
-export default Button;
+export default AppButton;

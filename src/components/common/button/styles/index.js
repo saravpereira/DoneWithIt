@@ -10,6 +10,7 @@ export const styles = (primary) => {
       alignItems: "center",
       borderRadius: 32,
       height: 50,
+      marginTop: 10,
     },
     text: {
       color: "white",
