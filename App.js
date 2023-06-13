@@ -10,34 +10,8 @@ import MyAccountScreen from "./src/components/myAccountScreen/MyAccountScreen";
 import ListingsScreen from "./src/components/listingsScreen/ListingsScreen";
 import AppTextInput from "./src/components/common/textInput/AppTextInput";
 import AppPicker from "./src/components/common/picker/AppPicker";
-
-const categories = [
-  {
-    label: "Furniture",
-    value: 1,
-  },
-  {
-    label: "Clothing",
-    value: 2,
-  },
-  {
-    label: "Cameras",
-    value: 3,
-  },
-];
+import LoginScreen from "./src/components/loginScreen/LoginScreen";
 
 export default function App() {
-  const [category, setSelectedCategory] = useState(null);
-  return (
-    <Screen>
-      <AppPicker
-        selectedItem={category}
-        onSelectedItem={setSelectedCategory}
-        placeholder="Category"
-        icon="apps"
-        items={categories}
-      />
-      <AppTextInput placeholder="Email" icon="email" />
-    </Screen>
-  );
+  return <LoginScreen />;
 }

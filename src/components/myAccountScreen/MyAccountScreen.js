@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { FlatList, View, Image } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Screen from "../common/screen/Screen";
-import ListItem from "../common/listItem/ListItem";
-import ListItemSeparator from "../common/listItemSeparator/ListItemSeparator";
+import ListItem from "../common/lists/listItem/ListItem";
+import ListItemSeparator from "../common/lists/listItemSeparator/ListItemSeparator";
 import { styles } from "./styles";
 
 const sampleUser = {

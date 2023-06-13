@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { FlatList, Image } from "react-native";
 import Screen from "../common/screen/Screen";
-import ListItem from "../common/listItem/ListItem";
-import ListItemSeparator from "../common/listItemSeparator/ListItemSeparator";
-import ListItemDeleteAction from "../common/listItemDeleteAction/ListItemDeleteAction";
+import ListItem from "../common/lists/listItem/ListItem";
+import ListItemSeparator from "../common/lists/listItemSeparator/ListItemSeparator";
+import ListItemDeleteAction from "../common/lists/listItemDeleteAction/ListItemDeleteAction";
 import { styles } from "./styles";
 
 const sample = [
