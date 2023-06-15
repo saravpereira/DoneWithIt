@@ -30,7 +30,7 @@ const AppPicker = ({
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-        <View style={styles.container}>
+        <View style={styles().container}>
           {icon && (
             <MaterialCommunityIcons
               name={icon}
@@ -38,7 +38,7 @@ const AppPicker = ({
               color={defaultStyles.colors.medium}
             />
           )}
-          <AppText style={styles.text}>
+          <AppText style={styles(!selectedItem).text}>
             {selectedItem ? selectedItem.label : placeholder}
           </AppText>
           <MaterialCommunityIcons

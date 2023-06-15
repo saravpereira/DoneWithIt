@@ -11,11 +11,4 @@ export const styles = StyleSheet.create({
     marginTop: 50,
     marginBottom: 20,
   },
-  errorMessage: {
-    color: "red",
-  },
-  passwordError: {
-    color: "red",
-    marginBottom: 5,
-  },
 });
