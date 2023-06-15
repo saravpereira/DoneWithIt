@@ -11,7 +11,9 @@ import ListingsScreen from "./src/components/listingsScreen/ListingsScreen";
 import AppTextInput from "./src/components/common/textInput/AppTextInput";
 import AppPicker from "./src/components/common/picker/AppPicker";
 import LoginScreen from "./src/components/loginScreen/LoginScreen";
+import RegistrationScreen from "./src/components/registrationScreen/RegistrationScreen";
+import ListingEditScreen from "./src/components/listingEditScreen/ListingEditScreen";
 
 export default function App() {
-  return <LoginScreen />;
+  return <ListingEditScreen />;
 }

@@ -1,29 +1,33 @@
 import React from "react";
-import { Image, View } from "react-native";
+import { View } from "react-native";
 import * as Yup from "yup";
 import Screen from "../common/screen/Screen";
 import { styles } from "./styles";
 import { AppForm, SubmitButton, AppFormField } from "../common/form";
 
 const validationSchema = Yup.object().shape({
+  name: Yup.string().required().label("Name"),
   email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(4).label("Password"),
 });
 
-const LoginScreen = () => {
+const RegistrationScreen = () => {
   return (
     <Screen>
       <View style={styles.container}>
-        <Image
-          style={styles.logo}
-          source={require("../../../assets/logo-red.png")}
-        />
         <AppForm
-          initialValues={{ email: "", password: "" }}
+          initialValues={{ name: "", email: "", password: "" }}
           onSubmit={(values) => console.log(values)}
           validationSchema={validationSchema}
         >
           <>
+            <AppFormField
+              name="name"
+              placeholder="Name"
+              icon="account"
+              autoCapitalize="none"
+              autoCorrect={false}
+            />
             <AppFormField
               name="email"
               placeholder="Email"
@@ -44,7 +48,7 @@ const LoginScreen = () => {
               textContentType="password"
             />
 
-            <SubmitButton text="LOGIN" />
+            <SubmitButton text="REGISTER" />
           </>
         </AppForm>
       </View>
@@ -52,4 +56,4 @@ const LoginScreen = () => {
   );
 };
 
-export default LoginScreen;
+export default RegistrationScreen;
