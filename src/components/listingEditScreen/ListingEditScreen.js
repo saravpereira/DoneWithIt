@@ -8,6 +8,8 @@ import {
   AppFormField,
   AppFormPicker,
 } from "../common/form";
+import CategoryPickerItem from "../common/picker/CategoryPickerItem";
+import categories from "../../constants/categories";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().min(1).label("Title"),
@@ -16,24 +18,14 @@ const validationSchema = Yup.object().shape({
   description: Yup.string().required().label("Description"),
 });
 
-const sampleCategories = [
-  {
-    label: "Fruniture",
-    value: 1,
-  },
-  {
-    label: "Clothing",
-    value: 2,
-  },
-  {
-    label: "Appliances",
-    value: 3,
-  },
-  {
-    label: "Miscellaneous ",
-    value: 4,
-  },
-];
+const sampleCategories = Object.keys(categories).map((item, index) => {
+  return {
+    label: item,
+    value: index,
+    backgroundColor: categories[item].backgroundColor,
+    icon: categories[item].icon
+  }
+})
 
 const ListingEditScreen = () => {
 
@@ -70,6 +62,8 @@ const ListingEditScreen = () => {
               placeholder="Category"
               items={sampleCategories}
               width="50%"
+              PickerItemComponent={CategoryPickerItem}
+              numberOfColumns={3}
             />
             <AppFormField
               name="description"

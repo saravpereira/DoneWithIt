@@ -19,5 +19,22 @@ export const styles = (placeholder) => {
     textPickerItem: {
       padding: 20,
     },
+    iconContainer: {
+      width:80,
+      height: 80,
+      borderRadius: 45,
+      justifyContent: "center",
+      alignItems: "center"
+    },
+    categoryPickerContainer: {
+      width:"33%",
+      paddingHorizontal:30,
+      paddingVertical:15,
+      alignItems: "center"
+    },
+    label: {
+      marginTop: 10,
+      textAlign: "center"
+    }
   });
 };
