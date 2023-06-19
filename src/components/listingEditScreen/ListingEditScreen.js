@@ -61,11 +61,15 @@ const ListingEditScreen = () => {
               placeholder="Price"
               autoCapitalize="none"
               autoCorrect={false}
+              maxLength={8}
+              numberOfLines={1}
+              width="30%"
             />
             <AppFormPicker
               name="category"
               placeholder="Category"
               items={sampleCategories}
+              width="50%"
             />
             <AppFormField
               name="description"

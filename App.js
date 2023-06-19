@@ -15,5 +15,5 @@ import RegistrationScreen from "./src/components/registrationScreen/Registration
 import ListingEditScreen from "./src/components/listingEditScreen/ListingEditScreen";
 
 export default function App() {
-  return <MessagesScreen />;
+  return <ListingEditScreen />;
 }
