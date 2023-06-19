@@ -47,14 +47,14 @@ const MyAccountScreen = () => {
   const [settings, setSettings] = useState(accountFeatures);
 
   return (
-    <View style={styles.container}>
-      <Screen>
+      <Screen style={styles.container}>
         <View style={styles.userDetailSection}>
           <ListItem
             title={messages.title}
             description={messages.description}
             avatar={messages.image}
-            onPress={() => console.log("Message sent", item)}
+            onPress={(item) => console.log("Message sent", item)}
+            
           />
         </View>
 
@@ -86,7 +86,6 @@ const MyAccountScreen = () => {
           />
         </View>
       </Screen>
-    </View>
   );
 };
 

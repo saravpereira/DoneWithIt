@@ -24,8 +24,7 @@ const ListingsScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Screen>
-        <View style={styles.content}>
+      <Screen style={styles.content}>
           {cards.map((item) => {
             return (
               <Card
@@ -36,7 +35,6 @@ const ListingsScreen = () => {
               />
             );
           })}
-        </View>
       </Screen>
     </View>
   );

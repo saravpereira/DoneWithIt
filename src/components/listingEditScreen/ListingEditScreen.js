@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { View } from "react-native";
+import React from "react";
 import * as Yup from "yup";
 import Screen from "../common/screen/Screen";
 import { styles } from "./styles";
@@ -9,6 +8,8 @@ import {
   AppFormField,
   AppFormPicker,
 } from "../common/form";
+import CategoryPickerItem from "../common/picker/CategoryPickerItem";
+import categories from "../../constants/categories";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().min(1).label("Title"),
@@ -17,31 +18,19 @@ const validationSchema = Yup.object().shape({
   description: Yup.string().required().label("Description"),
 });
 
-const sampleCategories = [
-  {
-    label: "Fruniture",
-    value: 1,
-  },
-  {
-    label: "Clothing",
-    value: 2,
-  },
-  {
-    label: "Appliances",
-    value: 3,
-  },
-  {
-    label: "Miscellaneous ",
-    value: 4,
-  },
-];
+const sampleCategories = Object.keys(categories).map((item, index) => {
+  return {
+    label: item,
+    value: index,
+    backgroundColor: categories[item].backgroundColor,
+    icon: categories[item].icon
+  }
+})
 
 const ListingEditScreen = () => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
 
   return (
-    <Screen>
-      <View style={styles.container}>
+    <Screen style={styles.container}>
         <AppForm
           initialValues={{
             name: "",
@@ -64,11 +53,17 @@ const ListingEditScreen = () => {
               placeholder="Price"
               autoCapitalize="none"
               autoCorrect={false}
+              maxLength={8}
+              numberOfLines={1}
+              width="30%"
             />
             <AppFormPicker
               name="category"
               placeholder="Category"
               items={sampleCategories}
+              width="50%"
+              PickerItemComponent={CategoryPickerItem}
+              numberOfColumns={3}
             />
             <AppFormField
               name="description"
@@ -81,7 +76,6 @@ const ListingEditScreen = () => {
             <SubmitButton text="POST" />
           </>
         </AppForm>
-      </View>
     </Screen>
   );
 };
