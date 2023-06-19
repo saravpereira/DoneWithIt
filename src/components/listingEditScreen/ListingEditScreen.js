@@ -11,9 +11,9 @@ import {
 } from "../common/form";
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string().required().label("Title"),
-  price: Yup.number().required().label("Price"),
-  category: Yup.object().required().label("Category"),
+  name: Yup.string().required().min(1).label("Title"),
+  price: Yup.number().required().min(1).max(10000).label("Price"),
+  category: Yup.object().required().nullable().label("Category"),
   description: Yup.string().required().label("Description"),
 });
 
@@ -75,6 +75,8 @@ const ListingEditScreen = () => {
               placeholder="Description"
               autoCapitalize="none"
               autoCorrect={false}
+              maxLength={255}
+              numberOfLines={3}
             />
             <SubmitButton text="POST" />
           </>
