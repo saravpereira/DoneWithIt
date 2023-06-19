@@ -1,5 +1,4 @@
 import React from "react";
-import { View } from "react-native";
 import * as Yup from "yup";
 import Screen from "../common/screen/Screen";
 import { styles } from "./styles";
@@ -13,8 +12,7 @@ const validationSchema = Yup.object().shape({
 
 const RegistrationScreen = () => {
   return (
-    <Screen>
-      <View style={styles.container}>
+    <Screen style={styles.container}>
         <AppForm
           initialValues={{ name: "", email: "", password: "" }}
           onSubmit={(values) => console.log(values)}
@@ -51,7 +49,6 @@ const RegistrationScreen = () => {
             <SubmitButton text="REGISTER" />
           </>
         </AppForm>
-      </View>
     </Screen>
   );
 };

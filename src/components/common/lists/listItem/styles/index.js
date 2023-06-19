@@ -6,8 +6,7 @@ export const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     gap: 10,
-  
-    backgroundColor: colors.white,
+    width: "100%",
     alignItems: "center",
   },
   userRow: {
@@ -16,6 +15,9 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     padding: 15,
+    width: "100%",
+    backgroundColor: colors.white,
+
   },
   avatar: {
     width: 60,

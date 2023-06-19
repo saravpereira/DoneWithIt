@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { View } from "react-native";
+import React from "react";
 import * as Yup from "yup";
 import Screen from "../common/screen/Screen";
 import { styles } from "./styles";
@@ -37,11 +36,9 @@ const sampleCategories = [
 ];
 
 const ListingEditScreen = () => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
 
   return (
-    <Screen>
-      <View style={styles.container}>
+    <Screen style={styles.container}>
         <AppForm
           initialValues={{
             name: "",
@@ -81,7 +78,6 @@ const ListingEditScreen = () => {
             <SubmitButton text="POST" />
           </>
         </AppForm>
-      </View>
     </Screen>
   );
 };
