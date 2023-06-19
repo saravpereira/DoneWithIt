@@ -57,7 +57,7 @@ const MessagesScreen = () => {
         )}
         ItemSeparatorComponent={ListItemSeparator}
         refreshing={refreshing}
-        onRefresh={() => setMessages([sample[1]])}
+        onRefresh={() => {}}
       />
     </Screen>
   );
