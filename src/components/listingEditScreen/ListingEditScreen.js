@@ -10,12 +10,14 @@ import {
 } from "../common/form";
 import CategoryPickerItem from "../common/picker/CategoryPickerItem";
 import categories from "../../constants/categories";
+import FormImagePicker from "../common/form/FormImagePicker";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().min(1).label("Title"),
   price: Yup.number().required().min(1).max(10000).label("Price"),
   category: Yup.object().required().nullable().label("Category"),
   description: Yup.string().required().label("Description"),
+  images: Yup.array().required().min(1, "Please select at least one image"),
 });
 
 const sampleCategories = Object.keys(categories).map((item, index) => {
@@ -23,59 +25,60 @@ const sampleCategories = Object.keys(categories).map((item, index) => {
     label: item,
     value: index,
     backgroundColor: categories[item].backgroundColor,
-    icon: categories[item].icon
-  }
-})
+    icon: categories[item].icon,
+  };
+});
 
 const ListingEditScreen = () => {
-
   return (
     <Screen style={styles.container}>
-        <AppForm
-          initialValues={{
-            name: "",
-            price: "",
-            category: "",
-            description: "",
-          }}
-          onSubmit={(values) => console.log(values)}
-          validationSchema={validationSchema}
-        >
-          <>
-            <AppFormField
-              name="name"
-              placeholder="Name"
-              autoCapitalize="none"
-              autoCorrect={false}
-            />
-            <AppFormField
-              name="price"
-              placeholder="Price"
-              autoCapitalize="none"
-              autoCorrect={false}
-              maxLength={8}
-              numberOfLines={1}
-              width="30%"
-            />
-            <AppFormPicker
-              name="category"
-              placeholder="Category"
-              items={sampleCategories}
-              width="50%"
-              PickerItemComponent={CategoryPickerItem}
-              numberOfColumns={3}
-            />
-            <AppFormField
-              name="description"
-              placeholder="Description"
-              autoCapitalize="none"
-              autoCorrect={false}
-              maxLength={255}
-              numberOfLines={3}
-            />
-            <SubmitButton text="POST" />
-          </>
-        </AppForm>
+      <AppForm
+        initialValues={{
+          name: "",
+          price: "",
+          category: "",
+          description: "",
+          images: [],
+        }}
+        onSubmit={(values) => console.log(values)}
+        validationSchema={validationSchema}
+      >
+        <>
+          <FormImagePicker name="images" />
+          <AppFormField
+            name="name"
+            placeholder="Name"
+            autoCapitalize="none"
+            autoCorrect={false}
+          />
+          <AppFormField
+            name="price"
+            placeholder="Price"
+            autoCapitalize="none"
+            autoCorrect={false}
+            maxLength={8}
+            numberOfLines={1}
+            width="30%"
+          />
+          <AppFormPicker
+            name="category"
+            placeholder="Category"
+            items={sampleCategories}
+            width="50%"
+            PickerItemComponent={CategoryPickerItem}
+            numberOfColumns={3}
+          />
+          <AppFormField
+            name="description"
+            placeholder="Description"
+            autoCapitalize="none"
+            autoCorrect={false}
+            maxLength={255}
+            numberOfLines={3}
+          />
+          <SubmitButton text="POST" />
+        </>
+      </AppForm>
     </Screen>
   );
 };
