@@ -11,6 +11,7 @@ import {
 import CategoryPickerItem from "../common/picker/CategoryPickerItem";
 import categories from "../../constants/categories";
 import FormImagePicker from "../common/form/FormImagePicker";
+import useLocation from "../../hooks/useLocation";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().min(1).label("Title"),
@@ -30,6 +31,8 @@ const sampleCategories = Object.keys(categories).map((item, index) => {
 });
 
 const ListingEditScreen = () => {
+  const location = useLocation();
+
   return (
     <Screen style={styles.container}>
       <AppForm
@@ -40,7 +43,7 @@ const ListingEditScreen = () => {
           description: "",
           images: [],
         }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values) => console.log(location)}
         validationSchema={validationSchema}
       >
         <>
