@@ -1,9 +1,12 @@
 import React from "react";
 import { styles } from "./styles";
 import { View, Image, Text, SafeAreaView } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import AppButton from "../common/button/AppButton";
 
 const WelcomeScreen = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <Image
@@ -24,9 +27,17 @@ const WelcomeScreen = () => {
       </SafeAreaView>
 
       <View style={styles.buttonsContainer}>
-        <AppButton text="LOGIN" color="primary" />
+        <AppButton
+          text="LOGIN"
+          color="primary"
+          onPress={() => navigation.navigate("LoginScreen")}
+        />
 
-        <AppButton text="REGISTER" color="secondary" />
+        <AppButton
+          text="REGISTER"
+          color="secondary"
+          onPress={() => navigation.navigate("RegistrationScreen")}
+        />
       </View>
     </View>
   );
