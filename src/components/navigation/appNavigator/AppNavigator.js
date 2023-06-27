@@ -3,16 +3,17 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import MyAccountScreen from "../../myAccountScreen/MyAccountScreen";
-import ListingsScreen from "../../listingsScreen/ListingsScreen";
 import ListingEditScreen from "../../listingEditScreen/ListingEditScreen";
 import NewListingButton from "./NewListingButton";
 import colors from "../../../constants/colors";
 import FeedNavigator from "../feedNavigator/FeedNavigator";
+import navigationTheme from "../navigationTheme";
+import AccountNavigator from "../accountNavigator/AccountNavigator";
 
 const AppNavigator = () => {
   const Tab = createBottomTabNavigator();
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={navigationTheme}>
       <Tab.Navigator
         tabBarOptions={{
           activeTintColor: colors.primaryColor,
@@ -38,7 +39,7 @@ const AppNavigator = () => {
         />
         <Tab.Screen
           name="Account"
-          component={MyAccountScreen}
+          component={AccountNavigator}
           options={{
             tabBarIcon: ({ size, color }) => (
               <MaterialCommunityIcons

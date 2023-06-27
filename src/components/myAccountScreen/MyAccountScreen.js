@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import { FlatList, View, Image } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Screen from "../common/screen/Screen";
@@ -43,49 +44,53 @@ const accountFeatures = [
 ];
 
 const MyAccountScreen = () => {
+  const navigation = useNavigation();
   const [messages, setMessages] = useState(sampleUser);
   const [settings, setSettings] = useState(accountFeatures);
 
   return (
-      <Screen style={styles.container}>
-        <View style={styles.userDetailSection}>
-          <ListItem
-            title={messages.title}
-            description={messages.description}
-            avatar={messages.image}
-            onPress={(item) => console.log("Message sent", item)}
-            
-          />
-        </View>
-
-        <FlatList
-          style={styles.flatlist}
-          data={settings}
-          keyExtractor={(settings) => settings.id.toString()}
-          renderItem={({ item }) => (
-            <ListItem
-              title={item.title}
-              description={item.description}
-              avatar={item.image}
-              onPress={() => console.log("Message sent", item)}
-            />
-          )}
-          ItemSeparatorComponent={ListItemSeparator}
+    <Screen style={styles.container}>
+      <View style={styles.userDetailSection}>
+        <ListItem
+          title={messages.title}
+          description={messages.description}
+          avatar={messages.image}
+          onPress={(item) => console.log("Message sent", item)}
         />
+      </View>
 
-        <View style={styles.section}>
+      <FlatList
+        style={styles.flatlist}
+        data={settings}
+        keyExtractor={(settings) => settings.id.toString()}
+        renderItem={({ item }) => (
           <ListItem
-            title="Log Out"
-            description=""
-            avatar={
-              <View style={styles.logoutIconContainer}>
-                <MaterialCommunityIcons name="logout" size={20} color="white" />
-              </View>
-            }
-            onPress={() => console.log("Message sent", item)}
+            title={item.title}
+            description={item.description}
+            avatar={item.image}
+            onPress={() => {
+              if (item.title === "My Messages") {
+                navigation.navigate("MessagesScreen");
+              }
+            }}
           />
-        </View>
-      </Screen>
+        )}
+        ItemSeparatorComponent={ListItemSeparator}
+      />
+
+      <View style={styles.section}>
+        <ListItem
+          title="Log Out"
+          description=""
+          avatar={
+            <View style={styles.logoutIconContainer}>
+              <MaterialCommunityIcons name="logout" size={20} color="white" />
+            </View>
+          }
+          onPress={() => console.log("Message sent", item)}
+        />
+      </View>
+    </Screen>
   );
 };
 
