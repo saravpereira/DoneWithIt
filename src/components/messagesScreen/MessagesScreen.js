@@ -40,7 +40,7 @@ const MessagesScreen = () => {
     setMessages(newMessages);
   };
   return (
-    <Screen>
+    <Screen style={styles.container}>
       <FlatList
         data={messages}
         keyExtractor={(messages) => messages.id.toString()}

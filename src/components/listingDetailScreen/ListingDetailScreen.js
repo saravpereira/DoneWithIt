@@ -3,14 +3,15 @@ import { styles } from "./styles";
 import { View, Image, Text } from "react-native";
 import ListItem from "../common/lists/listItem/ListItem";
 
-const ListingDetailScreen = ({
-  title,
-  subtitle,
-  image,
-  avatar,
-  listingUserFullname,
-  numberOfListing,
-}) => {
+const ListingDetailScreen = ({ route }) => {
+  const {
+    title,
+    subtitle,
+    image,
+    avatar,
+    listingUserFullname,
+    numberOfListing,
+  } = route.params;
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={image} />

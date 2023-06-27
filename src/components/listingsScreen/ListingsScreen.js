@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { TouchableWithoutFeedback, View } from "react-native";
 import { styles } from "./styles";
 import Card from "../common/card/Card";
 import Screen from "../common/screen/Screen";
@@ -10,33 +11,53 @@ const sample = [
     title: "Red Jacket For Sale",
     subtitle: "$100",
     image: require("../../../assets/jacket.jpg"),
+    avatar: require("../../../assets/mosh.jpg"),
+    listingUserFullname: "Mosh Pit",
+    numberOfListing: 5,
   },
   {
     id: 2,
     title: "Couch in great condition!",
     subtitle: "$1000",
     image: require("../../../assets/couch.jpg"),
+    avatar: require("../../../assets/mosh.jpg"),
+    listingUserFullname: "Mosh Pit",
+    numberOfListing: 5,
   },
 ];
 
 const ListingsScreen = () => {
   const [cards, setCards] = useState(sample);
+  const navigation = useNavigation();
 
   return (
-    <View style={styles.container}>
-      <Screen style={styles.content}>
-          {cards.map((item) => {
-            return (
+    <Screen style={styles.content}>
+      {cards.map((item) => {
+        return (
+          <TouchableWithoutFeedback
+            onPress={() =>
+              navigation.navigate("ListingDetailScreen", {
+                title: item.title,
+                subtitle: item.subtitle,
+                image: item.image,
+                listingUserFullname: item.listingUserFullname,
+                numberOfListing: item.numberOfListing,
+                avatar: item.avatar,
+              })
+            }
+            key={item.id}
+          >
+            <View>
               <Card
                 title={item.title}
                 subtitle={item.subtitle}
                 image={item.image}
-                key={item.id}
               />
-            );
-          })}
-      </Screen>
-    </View>
+            </View>
+          </TouchableWithoutFeedback>
+        );
+      })}
+    </Screen>
   );
 };
 
