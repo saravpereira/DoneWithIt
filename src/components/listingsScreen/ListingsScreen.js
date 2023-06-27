@@ -23,20 +23,18 @@ const ListingsScreen = () => {
   const [cards, setCards] = useState(sample);
 
   return (
-    <View style={styles.container}>
-      <Screen style={styles.content}>
-          {cards.map((item) => {
-            return (
-              <Card
-                title={item.title}
-                subtitle={item.subtitle}
-                image={item.image}
-                key={item.id}
-              />
-            );
-          })}
-      </Screen>
-    </View>
+    <Screen style={styles.content}>
+      {cards.map((item) => {
+        return (
+          <Card
+            title={item.title}
+            subtitle={item.subtitle}
+            image={item.image}
+            key={item.id}
+          />
+        );
+      })}
+    </Screen>
   );
 };
 
