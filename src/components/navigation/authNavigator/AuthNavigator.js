@@ -4,11 +4,12 @@ import { NavigationContainer } from "@react-navigation/native";
 import WelcomeScreen from "../../welcomeScreen/WelcomeScreen";
 import RegistrationScreen from "../../registrationScreen/RegistrationScreen";
 import LoginScreen from "../../loginScreen/LoginScreen";
+import navigationTheme from "../navigationTheme";
 
 const AuthNavigator = () => {
   const Stack = createStackNavigator();
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={navigationTheme}>
       <Stack.Navigator>
         <Stack.Screen
           name="WelcomeScreen"

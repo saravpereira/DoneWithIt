@@ -8,7 +8,7 @@ import ListingEditScreen from "../../listingEditScreen/ListingEditScreen";
 import NewListingButton from "./NewListingButton";
 import colors from "../../../constants/colors";
 
-const ListingNavigator = () => {
+const AppNavigator = () => {
   const Tab = createBottomTabNavigator();
   return (
     <NavigationContainer>
@@ -53,4 +53,4 @@ const ListingNavigator = () => {
   );
 };
 
-export default ListingNavigator;
+export default AppNavigator;
