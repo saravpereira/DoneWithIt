@@ -4,6 +4,7 @@ import { TouchableWithoutFeedback, View } from "react-native";
 import { styles } from "./styles";
 import Card from "../common/card/Card";
 import Screen from "../common/screen/Screen";
+import routes from "../navigation/routes";
 
 const sample = [
   {
@@ -36,7 +37,7 @@ const ListingsScreen = () => {
         return (
           <TouchableWithoutFeedback
             onPress={() =>
-              navigation.navigate("ListingDetailScreen", {
+              navigation.navigate(routes.LISTING_DETAILS, {
                 title: item.title,
                 subtitle: item.subtitle,
                 image: item.image,
