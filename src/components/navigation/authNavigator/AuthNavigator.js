@@ -5,6 +5,7 @@ import WelcomeScreen from "../../welcomeScreen/WelcomeScreen";
 import RegistrationScreen from "../../registrationScreen/RegistrationScreen";
 import LoginScreen from "../../loginScreen/LoginScreen";
 import navigationTheme from "../navigationTheme";
+import routes from "../routes";
 
 const AuthNavigator = () => {
   const Stack = createStackNavigator();
@@ -12,14 +13,14 @@ const AuthNavigator = () => {
     <NavigationContainer theme={navigationTheme}>
       <Stack.Navigator>
         <Stack.Screen
-          name="WelcomeScreen"
+          name={routes.WELCOME_SCREEN}
           component={WelcomeScreen}
           options={{
             headerShown: false,
           }}
         />
         <Stack.Screen
-          name="LoginScreen"
+          name={routes.LOGIN_SCREEN}
           component={LoginScreen}
           options={{
             headerTransparent: true,
@@ -28,7 +29,7 @@ const AuthNavigator = () => {
           }}
         />
         <Stack.Screen
-          name="RegistrationScreen"
+          name={routes.REGISTRATION_SCREEN}
           component={RegistrationScreen}
           options={{
             headerTransparent: true,
