@@ -6,10 +6,14 @@ import AppText from "../text/AppText";
 const Card = ({ title, subtitle, image }) => {
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={image} />
+      <Image style={styles.image} source={{ uri: image }} />
       <View style={styles.productDetailSection}>
-        <AppText style={styles.title} numberOfLines={2}>{title}</AppText>
-        <AppText style={styles.pricing} numberOfLines={1}>{subtitle}</AppText>
+        <AppText style={styles.title} numberOfLines={2}>
+          {title}
+        </AppText>
+        <AppText style={styles.pricing} numberOfLines={1}>
+          {subtitle}
+        </AppText>
       </View>
     </View>
   );
