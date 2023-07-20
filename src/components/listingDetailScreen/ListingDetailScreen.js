@@ -14,7 +14,7 @@ const ListingDetailScreen = ({ route }) => {
   } = route.params;
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={image} />
+      <Image style={styles.image} source={{ uri: image }} />
       <View style={styles.productDetailSection}>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.pricing}>{subtitle}</Text>
