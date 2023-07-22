@@ -6,6 +6,10 @@ import Card from "../common/card/Card";
 import Screen from "../common/screen/Screen";
 import routes from "../navigation/routes";
 import listingsApi from "../../api/listings";
+import AppText from "../common/text/AppText";
+import AppButton from "../common/button/AppButton";
+import ActivityIndicator from "../activityIndicator/ActivityIndicator";
+import useApi from "../../hooks/useApi";
 
 const sample = [
   {
@@ -29,24 +33,29 @@ const sample = [
 ];
 
 const ListingsScreen = () => {
-  const [listings, setListings] = useState([]);
+  const {
+    data: listings,
+    error,
+    loading,
+    request: loadListings,
+  } = useApi(listingsApi.getListings);
+
   const navigation = useNavigation();
 
   useEffect(() => {
     loadListings();
   }, []);
 
-  const loadListings = async () => {
-    const response = await listingsApi.getListings();
-    if (response.data) {
-      setListings(response.data);
-    }
-  };
-
   return (
     <Screen style={styles.content}>
+      {error && (
+        <>
+          <AppText>Couldn't retrieve the listings</AppText>
+          <AppButton text="Retry" onPress={loadListings} />
+        </>
+      )}
+      <ActivityIndicator visible={loading} />
       {listings.map((item) => {
-        console.log("Sara", item);
         return (
           <TouchableWithoutFeedback
             onPress={() =>
