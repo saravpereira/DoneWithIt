@@ -9,6 +9,7 @@ import listingsApi from "../../api/listings";
 import AppText from "../common/text/AppText";
 import AppButton from "../common/button/AppButton";
 import ActivityIndicator from "../activityIndicator/ActivityIndicator";
+import useApi from "../../hooks/useApi";
 
 const sample = [
   {
@@ -32,27 +33,18 @@ const sample = [
 ];
 
 const ListingsScreen = () => {
-  const [listings, setListings] = useState([]);
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const {
+    data: listings,
+    error,
+    loading,
+    request: loadListings,
+  } = useApi(listingsApi.getListings);
+
   const navigation = useNavigation();
 
   useEffect(() => {
     loadListings();
   }, []);
-
-  const loadListings = async () => {
-    setLoading(true);
-    const response = await listingsApi.getListings();
-    setLoading(false);
-
-    if (!response.ok) {
-      return setError(true);
-    }
-
-    setError(false);
-    setListings(response.data);
-  };
 
   return (
     <Screen style={styles.content}>
