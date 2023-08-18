@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Yup from "yup";
 import Screen from "../common/screen/Screen";
 import { styles } from "./styles";
@@ -13,6 +13,7 @@ import categories from "../../constants/categories";
 import FormImagePicker from "../common/form/FormImagePicker";
 import useLocation from "../../hooks/useLocation";
 import listingsApi from "../../api/listings";
+import UploadScreen from "../uploadScreen/UploadScreen";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required().min(1).label("Title"),
@@ -25,7 +26,7 @@ const validationSchema = Yup.object().shape({
 const sampleCategories = Object.keys(categories).map((item, index) => {
   return {
     label: item,
-    value: index,
+    value: index + 1,
     backgroundColor: categories[item].backgroundColor,
     icon: categories[item].icon,
   };
@@ -33,15 +34,20 @@ const sampleCategories = Object.keys(categories).map((item, index) => {
 
 const ListingEditScreen = () => {
   const location = useLocation();
+  const [uploadVisible, setUploadVisible] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   const handleSubmit = async (listing) => {
+    setProgress(0);
+    setUploadVisible(true);
     const result = await listingsApi.addListings(
       {
         ...listing,
         location,
       },
-      (progress) => console.log("sara", progress)
+      (progress) => setProgress(progress)
     );
+    setUploadVisible(false);
     if (!result.ok) {
       return alert("Could not save the listing.");
     }
@@ -50,6 +56,7 @@ const ListingEditScreen = () => {
 
   return (
     <Screen style={styles.container}>
+      <UploadScreen progress={progress} visible={uploadVisible} />
       <AppForm
         initialValues={{
           name: "",
